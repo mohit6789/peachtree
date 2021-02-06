@@ -1,0 +1,42 @@
+@import "1-helpers/variables";
+@import "1-helpers/mixins";
+
+:host {
+  max-width: 100%;
+}
+.sort-panel {
+  font-size: 14px;
+  font-weight: 300;
+
+  .sort-panel-label {
+    margin-right: 1.5em;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: inline-block;
+
+    @include md {
+      margin-bottom: 0;
+    }
+  }
+
+  .sort-panel-options {
+    display: inline-flex;
+    border: 1px solid $color-sort-panel-border;
+    overflow: auto;
+    max-width: 100%;
+
+    > button {
+      border-radius: 0;
+      cursor: pointer;
+      &:not(:last-child) {
+        border-right: 1px solid $color-sort-panel-border;
+      }
+      white-space: nowrap;
+    }
+
+    .icon {
+      color: $color-font-light;
+    }
+  }
+}

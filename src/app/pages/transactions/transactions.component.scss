@@ -1,0 +1,29 @@
+@import "1-helpers/variables";
+@import "1-helpers/mixins";
+
+.transactions {
+  display: flex;
+  margin-top: 2em;
+  flex-direction: column;
+
+  @include md {
+    flex-direction: row;
+  }
+
+  .transactions-make-payment {
+    height: 100%;
+    margin-bottom: 1em;
+    @include md {
+      flex: 1 0 25%;
+      margin-right: 1em;
+      margin-bottom: 0;
+    }
+  }
+
+  .transactions-history {
+    height: 100%;
+    @include md {
+      flex: 1 1 100%;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@import "../assets/scss/1-helpers/variables";
+
+.app {
+  position: relative;
+  .app-body {
+    position: relative;
+    z-index: 1;
+  }
+
+  .app-background-image {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    min-height: calc(100vh - #{$header-height});
+    height: calc(100% - #{$header-height});
+
+    background: url("#{$path-images}/background.jpg") no-repeat center center;
+    background-size: cover;
+  }
+}

@@ -1,0 +1,38 @@
+@import "../1-helpers/variables";
+
+select.custom-input {
+  appearance: none;
+}
+
+.custom-input {
+  font-size: 14px;
+  border: none;
+  border-radius: 0;
+  color: $color-input-font;
+  border-bottom: 1px solid #{$color-input-border};
+  padding-left: 0;
+  padding-bottom: 5px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    background: inherit;
+    cursor: not-allowed;
+  }
+}
+
+.input-wrapper {
+  display: flex;
+  border-bottom: 1px solid #{$color-input-border};
+  padding-bottom: 5px;
+  color: $color-input-font;
+
+  input,
+  select {
+    flex: 1 1 auto;
+    border: none;
+    padding: 0;
+  }
+}

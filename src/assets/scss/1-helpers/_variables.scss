@@ -1,0 +1,43 @@
+// COLORS
+$color-primary: #3a8194;
+$color-secondary: #de7743;
+$color-error: red;
+$color-success: green;
+$color-font: black;
+$color-font-light: gray;
+
+// INPUT
+$color-input-border: lightgray;
+$color-input-font: gray;
+
+// CARD
+$color-card-shadow: gray;
+$color-card-header-background: $color-primary;
+$color-card-header-font: #fcfcfd;
+$color-card-header-icon: #b5d4db;
+$color-card-body-background: white;
+
+// BUTTON
+$color-button-text: white;
+$color-button-transperant-text: $color-font;
+$color-button-transparent-border: lightgray;
+
+// SORT PANEL
+$color-sort-panel-border: lightgray;
+
+// TRNSACTION-HISTORY
+$color-transaction-history-border: lightgray;
+
+// PATH
+$path-assets: "/assets";
+$path-images: "#{$path-assets}/images";
+$path-fonts: "#{$path-assets}/fonts";
+
+// HEADER
+$header-height: 60px;
+
+// SCREEN SIZE
+$screen-sm-min: 576px;
+$screen-md-min: 768px;
+$screen-lg-min: 992px;
+$screen-xl-min: 1200px;

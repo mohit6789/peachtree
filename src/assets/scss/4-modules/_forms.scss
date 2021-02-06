@@ -1,0 +1,22 @@
+.form-item {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    padding-bottom: 5px;
+  }
+
+  &.inline {
+    flex-direction: row;
+  }
+}
+
+.form-error {
+  font-size: 0.8em;
+  color: $color-error;
+}
+
+.form-success {
+  font-size: 0.8em;
+  color: $color-success;
+}

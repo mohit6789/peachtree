@@ -1,0 +1,27 @@
+<div class="preview">
+  <p class="heading">Review your transaction</p>
+  <div class="row">
+    <div>From Account</div>
+    <div class="value">{{ fromAccount }}</div>
+  </div>
+  <div class="row">
+    <div>To Account</div>
+    <div class="value">{{ toAccount }}</div>
+  </div>
+  <div class="row">
+    <div>Amount</div>
+    <div class="value">{{ amount | currency: currencyCode }}</div>
+  </div>
+  <div class="button-container m-t-20">
+    <button
+      type="button"
+      class="button transparent has-border m-r-10"
+      (click)="onCancel()"
+    >
+      Cancel
+    </button>
+    <button type="submit" class="button secondary" (click)="onTransfer()">
+      Transfer
+    </button>
+  </div>
+</div>

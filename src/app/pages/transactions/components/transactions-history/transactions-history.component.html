@@ -1,0 +1,35 @@
+<app-transaction-history-header></app-transaction-history-header>
+
+<div
+  class="transactions-history"
+  *ngIf="transactionService.transactions$ | async as transactions"
+>
+  <table *ngIf="transactions.length; else notFound">
+    <tr *ngFor="let item of transactions" class="row">
+      <td class="date" [style.border-left-color]="item.categoryCode">
+        {{ item.dates.valueDate | date: "MMM. yy" }}
+      </td>
+      <td class="image">
+        <img
+          [src]="'assets/images/icons/' + getMerchantIcon(item.merchant.name)"
+          alt="text"
+          width="40"
+          height="40"
+        />
+      </td>
+      <td class="description">
+        <div class="merchant-name">{{ item.merchant.name }}</div>
+        <div>{{ item.transaction.type }}</div>
+      </td>
+      <td class="amount">
+        {{
+          item.transaction.amountCurrency.amount
+            | currency: item.transaction.amountCurrency.currencyCode
+        }}
+      </td>
+    </tr>
+  </table>
+  <ng-template #notFound>
+    <div class="no-record-found">No records found.</div>
+  </ng-template>
+</div>

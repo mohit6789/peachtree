@@ -1,0 +1,80 @@
+<form
+  class="transaction-form"
+  [formGroup]="makeTransactionFormGroup"
+  (submit)="submitForm()"
+  *ngIf="!showPreview; else preview"
+>
+  <p [ngClass]="[hasError ? 'form-error' : 'form-success']" *ngIf="message">
+    {{ message }}
+  </p>
+  <div class="form-item">
+    <label for="fromAccount">FROM ACCOUNT</label>
+    <input
+      disabled
+      id="fromAccount"
+      class="custom-input"
+      type="text"
+      value="{{ fromAccount }} - {{
+        transactionService.accountBalance$
+          | async
+          | currency: currencyCode:'symbol':'1.2-2'
+      }}"
+    />
+  </div>
+
+  <div class="form-item">
+    <label for="toAccount">TO ACCOUNT</label>
+    <select class="custom-input" formControlName="toAccount">
+      <option value="null" disabled="true">Select Account...</option>
+      <option *ngFor="let item of creditorMerchants" [value]="item.name">
+        {{ item.name }}
+      </option>
+    </select>
+    <div
+      role="alert"
+      class="form-error"
+      *ngIf="
+        toAccount &&
+        (toAccount.dirty || toAccount.touched) &&
+        toAccount?.errors?.required
+      "
+    >
+      To account is required.
+    </div>
+  </div>
+
+  <div class="form-item">
+    <label for="amount">AMOUNT</label>
+    <div class="input-wrapper">
+      <span class="symbol p-r-5">{{
+        "0" | currency: currencyCode | slice: 0:1
+      }}</span>
+      <input
+        type="number"
+        id="amount"
+        placeholder="0.00"
+        min="1"
+        class="custom-input"
+        formControlName="amount"
+      />
+    </div>
+    <div class="form-error" *ngIf="amount && (amount.dirty || amount.touched)">
+      <span *ngIf="amount.errors?.required">Amount is required.</span>
+      <span *ngIf="amount.errors?.min as minAmount"
+        >Amount must be >= {{ minAmount.min }}.</span
+      >
+    </div>
+  </div>
+  <button type="submit" class="button secondary big right p-l-50 p-r-50">
+    SUBMIT
+  </button>
+</form>
+<ng-template #preview>
+  <app-make-transaction-preview
+    [fromAccount]="fromAccount"
+    [toAccount]="toAccount?.value"
+    [amount]="amount?.value"
+    (transfer)="transfer()"
+    (cancel)="cancelTransfer()"
+  ></app-make-transaction-preview>
+</ng-template>

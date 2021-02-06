@@ -1,0 +1,15 @@
+.searchbox {
+  height: auto;
+  display: flex;
+
+  input {
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  .close {
+    height: auto;
+    align-self: center;
+    cursor: pointer;
+  }
+}

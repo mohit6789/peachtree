@@ -1,0 +1,22 @@
+@import "1-helpers/variables";
+
+.header {
+  height: $header-height;
+  width: 100%;
+  border-bottom: 2px solid $color-secondary;
+  box-sizing: border-box;
+
+  .header-content {
+    height: inherit;
+    width: inherit;
+    display: flex;
+    align-items: center;
+
+    .header-image {
+      background: url("#{$path-images}/logo.jpg") no-repeat;
+      background-size: contain;
+      height: 50%;
+      width: 100%;
+    }
+  }
+}

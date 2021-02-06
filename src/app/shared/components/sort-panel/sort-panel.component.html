@@ -1,0 +1,20 @@
+<div class="sort-panel">
+  <label class="sort-panel-label">{{ label }}</label>
+  <div class="sort-panel-options">
+    <button
+      class="button transparent"
+      *ngFor="let option of options"
+      (click)="onClick(option)"
+    >
+      {{ option.label }}
+      <i
+        *ngIf="option.key === sortBy"
+        [ngClass]="[
+          sortOrder === 'ASC' ? 'fa fa-caret-down' : 'fa fa-caret-up'
+        ]"
+        class="icon p-l-5"
+        aria-hidden="true"
+      ></i>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+.basic-container {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.flex-box {
+  display: flex;
+}
+
+.form-error {
+  color: $color-error;
+  font-size: 0.8em;
+}

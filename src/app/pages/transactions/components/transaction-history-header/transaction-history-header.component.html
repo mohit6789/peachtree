@@ -1,0 +1,18 @@
+<ng-container
+  *ngIf="
+    transactionService.searchAndSortOptions$ | async as searchAndSortOptions
+  "
+>
+  <app-searchbox
+    class="search"
+    [value]="searchAndSortOptions.searchValue"
+    [formControl]="filter"
+  ></app-searchbox>
+
+  <app-sort-panel
+    [options]="options"
+    [sortBy]="searchAndSortOptions.sortBy"
+    [sortOrder]="searchAndSortOptions.sortOrder"
+    (changed)="onChange($event)"
+  ></app-sort-panel>
+</ng-container>

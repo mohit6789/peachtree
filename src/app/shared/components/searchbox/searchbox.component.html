@@ -1,0 +1,12 @@
+<div class="searchbox input-wrapper">
+  <input
+    type="text"
+    [(ngModel)]="value"
+    class="custom-input search"
+    placeholder="Search by typing..."
+  />
+
+  <button *ngIf="value" class="button transparent no-padding" (click)="clear()">
+    <i class="fa fa-times" aria-hidden="true"></i>
+  </button>
+</div>
