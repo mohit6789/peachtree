@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { of } from 'rxjs';
 import { TransactionService } from 'src/app/pages/transactions/transaction.service';
 import { Transactions } from 'src/app/pages/transactions/transactions.interfaces';
+import { DOMHelper } from 'src/testing/dom-helper';
 
 import { TransactionsHistoryComponent } from './transactions-history.component';
 
@@ -8,11 +10,15 @@ describe('TransactionsHistoryComponent', () => {
   let component: TransactionsHistoryComponent;
   let fixture: ComponentFixture<TransactionsHistoryComponent>;
   let transactionServiceMock: any;
+  let dh: DOMHelper<TransactionsHistoryComponent>;
 
   beforeEach(async () => {
     transactionServiceMock = jasmine.createSpyObj('TransactionService', [
       'search',
+      'transactions$',
     ]);
+
+    transactionServiceMock.transactions$ = of([]);
 
     await TestBed.configureTestingModule({
       declarations: [TransactionsHistoryComponent],
@@ -24,6 +30,7 @@ describe('TransactionsHistoryComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TransactionsHistoryComponent);
+    dh = new DOMHelper(fixture);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -32,7 +39,11 @@ describe('TransactionsHistoryComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should show two transactions records', () => {});
+  it('should show two transactions records', () => {
+    transactionServiceMock.transactions$ = of(transactions);
+    fixture.detectChanges();
+    expect(dh.count('tr')).toBe(2);
+  });
 });
 
 const transactions: Transactions = [

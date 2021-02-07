@@ -58,7 +58,11 @@
         formControlName="amount"
       />
     </div>
-    <div class="form-error" *ngIf="amount && (amount.dirty || amount.touched)">
+
+    <div
+      class="form-error"
+      *ngIf="amount && (amount.dirty || amount.touched) && amount.errors"
+    >
       <span *ngIf="amount.errors?.required">Amount is required.</span>
       <span *ngIf="amount.errors?.min as minAmount"
         >Amount must be >= {{ minAmount.min }}.</span

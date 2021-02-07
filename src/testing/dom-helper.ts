@@ -19,22 +19,6 @@ export class DOMHelper<T> {
     return elements.length;
   }
 
-  countText(tagName: string, text: string): number {
-    const elements = this.fixture.debugElement.queryAll(By.css(tagName));
-    return elements.filter(
-      (element) => element.nativeElement.textContent === text
-    ).length;
-  }
-
-  clickButton(buttonText: string) {
-    this.findAll('button').forEach((button) => {
-      const buttonElement: HTMLButtonElement = button.nativeElement;
-      if (buttonElement.textContent?.trim() === buttonText.trim()) {
-        buttonElement.click();
-      }
-    });
-  }
-
   findAll(tagName: string) {
     return this.fixture.debugElement.queryAll(By.css(tagName));
   }
