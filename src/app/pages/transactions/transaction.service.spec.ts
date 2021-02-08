@@ -6,14 +6,10 @@ import {
 } from '@angular/common/http/testing';
 
 import { TransactionService } from './transaction.service';
-
-// @ts-ignore
-import * as myJson from '../../../assets/json/transactions.json';
 import {
   TransactionItem,
   Transactions,
 } from 'src/app/pages/transactions/transactions.interfaces';
-import { TransactionType } from 'src/app/shared/interfaces/merchant.interfaces';
 
 describe('TransactionsService', () => {
   let service: TransactionService;
