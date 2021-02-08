@@ -29,7 +29,7 @@
   }
 
   &.transparent {
-    background-color: transparent;
+    background-color: $color-button-background-transparent;
     color: $color-button-transperant-text;
     &.has-border {
       border: 1px solid $color-button-transparent-border;

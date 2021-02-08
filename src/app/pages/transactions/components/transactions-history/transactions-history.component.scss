@@ -21,7 +21,7 @@
 
     td {
       border-top: 1px solid $color-transaction-history-border;
-      padding: 5px;
+      padding: 10px;
       min-width: 80px;
     }
 
@@ -37,6 +37,9 @@
 
     .image {
       text-align: center;
+      > img {
+        vertical-align: middle;
+      }
     }
 
     .description {
