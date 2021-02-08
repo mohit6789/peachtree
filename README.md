@@ -24,8 +24,8 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ### Angular
 
-- All new `page/route` created inside the pages folder.
-- All components requires by particular routes are available inside the `pages/<page>/components` folder.
+- All new `page(route)` created inside the pages folder.
+- All components requires by particular page(route) are available inside the `pages/<page>/components` folder.
 - All shared functionality are available inside the shared folder like `components`, `constants`, `interfaces`, and `utility`.
 
 ### Styles
